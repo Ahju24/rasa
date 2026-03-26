@@ -87,18 +87,24 @@
 
   <main>
     
-    <div id="rasa-chat-widget" data-websocket-url="https://your-number.ngrok-free.app"></div>
-    <script src="https://unpkg.com/@botfront/rasa-webchat@1.0.1/lib/index.js"></script>
-    <script>
-      WebChat.default.init({
-        selector: "#rasa-chat-widget",
-        initPayload: "/session_start",
-        customData: { "condition": "1" }, 
-        socketUrl: "https://45d7-2001-16b8-c55a-a300-348d-81fd-8871-8861.ngrok-free.app",
-        socketPath: "/socket.io/",
-        title: "Coment",
-      })
-    </script>
+    <!-- Rasa Chat Widget -->
+    <script
+      type="module"
+      src="https://unpkg.com/@rasahq/chat-widget-ui/dist/rasa-chatwidget/rasa-chatwidget.esm.js"
+    ></script>
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/@rasahq/chat-widget-ui/dist/rasa-chatwidget/rasa-chatwidget.css"
+    />
+    <!-- Replace server-url  -->
+    <rasa-chatbot-widget 
+      id="my-bot" 
+      toggle-full-screen="true" 
+      widget-title="Mentoring Session with Coment" 
+      auto-open="true" 
+      server-url="https://45d7-2001-16b8-c55a-a300-348d-81fd-8871-8861.ngrok-free.app" 
+      socket-path="/socket.io/">
+      </rasa-chatbot-widget>
    
   </main>
 
