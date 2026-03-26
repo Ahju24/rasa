@@ -99,6 +99,20 @@
     <rasa-chatbot-widget id="my-bot" toggle-full-screen="true" widget-title="Mentoring Session with Coment" auto-open="true" server-url="https://45d7-2001-16b8-c55a-a300-348d-81fd-8871-8861.ngrok-free.app" socket-path="/socket.io/"></rasa-chatbot-widget>
   </main>
 
+  <script>
+    // Grab condition from url
+  const urlParams = new URLSearchParams(window.location.search);
+  const condition = urlParams.get('condition') || "1";
+
+  // Select the widget element
+  const botWidget = document.getElementById('my-bot');
+
+  // Construct initial payload
+  if (botWidget) {
+    botWidget.setAttribute('initial-payload', 'trigger_flow{"flow": "welcome"}');
+    botWidget.setAttribute('custom-data', JSON.stringify({ "condition": condition }));
+  }
+  </script>
   
 
 </body>
