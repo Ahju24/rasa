@@ -86,24 +86,26 @@
     </div>
 
   <main>
-    <div id="rasa-chat-widget"></div>
-  <script src="https://cdn.jsdelivr.net/npm/rasa-webchat@1.0.1/lib/index.min.js"></script>
-
-  <script>
-    WebChat.default.init({
-      selector: "#rasa-chat-widget",
-      initPayload: "/get_started",
-      customData: { "language": "en" },
-      socketUrl: "https://2c11-2001-16b8-c55a-a300-348d-81fd-8871-8861.ngrok-free.app", 
-      socketPath: "/socket.io/", 
-      title: "Coment",
-      subtitle: "Research Assistant",
-      // This allows the widget to fall back to REST if Sockets fail
-      params: {
-        storage: "session"
-      }
-    })
-  </script>
+    
+    <!-- Rasa Chat Widget -->
+    <script
+      type="module"
+      src="https://unpkg.com/@rasahq/chat-widget-ui/dist/rasa-chatwidget/rasa-chatwidget.esm.js"
+    ></script>
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/@rasahq/chat-widget-ui/dist/rasa-chatwidget/rasa-chatwidget.css"
+    />
+    <!-- Replace server-url  -->
+    <rasa-chatbot-widget 
+      id="my-bot" 
+      toggle-full-screen="true" 
+      widget-title="Mentoring Session with Coment" 
+      auto-open="true" 
+      server-url="https://2c11-2001-16b8-c55a-a300-348d-81fd-8871-8861.ngrok-free.app" 
+      user-id="test-user-123"
+      socket-path="/socket.io/">
+      </rasa-chatbot-widget>
    
   </main>
 
