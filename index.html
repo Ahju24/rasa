@@ -96,45 +96,21 @@
       href="https://unpkg.com/@rasahq/chat-widget-ui/dist/rasa-chatwidget/rasa-chatwidget.css"
     />
     <!-- Replace server-url  -->
-    <rasa-chatbot-widget toggle-full-screen="true" widget-title="Coment" auto-open="true" server-url="http://localhost:5055"></rasa-chatbot-widget>
+    <rasa-chatbot-widget toggle-full-screen="true" widget-title="Coment" auto-open="true" server-url="http://localhost:5005"></rasa-chatbot-widget>
   </main>
 
   <script>
-    // Capture the pid from the URL and store it
-    const urlParams = new URLSearchParams(window.location.search);
-    const pid = urlParams.get('pid');
-    if (pid) {
-      sessionStorage.setItem('pid', pid);
-    }
+    // Grab condition from url
+  const urlParams = new URLSearchParams(window.location.search);
+  const condition = urlParams.get('condition') || "1";
 
-    // Flag to prevent duplicate return links
-    let returnLinkShown = false;
-    
-    // Wait for the Dialogflow Messenger to be ready
-    window.addEventListener('df-messenger-loaded', function () {
-      const messenger = document.querySelector('df-messenger');
+  // Select the widget element
+  const botWidget = document.getElementById('my-rasa-assistant');
 
-      // Listen for messages from Dialogflow
-      messenger.addEventListener('df-response-received', function (event) {
-        const responses = event.detail.response.queryResult.fulfillmentMessages;
-
-        responses.forEach((response) => {
-          if (response.payload && response.payload.type === 'return_link' && !returnLinkShown) {
-            returnLinkShown = true; // Set the flag to prevent future links
-            const storedPid = sessionStorage.getItem('pid') || 'missingPID';
-            const returnURL = `https://www.soscisurvey.de/seminar19/?r=return&pid=${storedPid}`;
-
-            const messageDiv = document.createElement('div');
-            messageDiv.className = 'return-link';
-            messageDiv.innerHTML = `
-              <a href="${returnURL}">Click here to return to the survey</a>
-            `;
-
-            document.querySelector('main').appendChild(messageDiv);
-          }
-        });
-      });
-    });
+  // Construct initial payload
+  if (botWidget) {
+    botWidget.setAttribute('custom-data', JSON.stringify({ "condition": condition }));
+  }
   </script>
 
 </body>
