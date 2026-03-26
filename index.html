@@ -109,6 +109,7 @@
 
   // Construct initial payload
   if (botWidget) {
+    botWidget.setAttribute('initial-payload', '/session_start');
     botWidget.setAttribute('custom-data', JSON.stringify({ "condition": condition }));
   }
   </script>
