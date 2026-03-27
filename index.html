@@ -37,7 +37,7 @@
     }
 
     header {
-      background-color: #26c6da;
+      background-color: #6093ab;
       color: white;
       width: 100%;
       padding: 20px 30px;
@@ -65,9 +65,9 @@
 
     .return-link a {
       text-decoration: none;
-      color: #26c6da;
+      color: #6093ab;
       font-weight: bold;
-      border: 1px solid #26c6da;
+      border: 1px solid #6093ab;
       padding: 10px 16px;
       border-radius: 6px;
       background-color: #e0f7fa;
@@ -75,7 +75,7 @@
     }
 
     .return-link a:hover {
-      background-color: #b2ebf2;
+      background-color: #83c6e6;
     }
 
     rasa-chatbot-widget {
@@ -100,14 +100,21 @@
     <div class="container">
       
     <div class="info-panel">
-      <div style="display: flex; align-items: flex-start;">
-        <span style="margin-right: 10px;">ℹ️</span>
-        <p>For the best experience, please use clear, natural language when interacting with the chatbot.</p>
+      <div style="display: flex; align-items: flex-start; margin-bottom: 15px;">
+        <span style="margin-right: 12px; margin-top: 2px; font-size: 1.2rem;">ℹ️</span>
+        <p style="margin: 0; line-height: 1.5; font-size: 15px; color: #333;">
+          For the best experience, please use clear, natural language when interacting with the chatbot.
+        </p>
       </div>
       
       <div style="display: flex; align-items: flex-start;">
         <span style="margin-right: 10px;">🕒</span>
-        <p>Please note: The chatbot may take a moment to respond to your first message. Thank you for your patience!</p>
+        <p>The bot may take a moment to respond to your first message. Thank you for your patience!</p>
+      </div>
+
+      <div style="display: flex; align-items: flex-start;">
+        <span style="margin-right: 10px;">💬</span>
+        <p>Please click on the chat icon below to start your mentoring session!</p>
       </div>
       
     </div>
@@ -130,10 +137,9 @@
           id="my-bot" 
           toggle-full-screen="true" 
           widget-title="Mentoring Session with Coment" 
-          auto-open="true" 
           server-url="https://8a42-2001-16b8-c563-aa00-65d7-1d2a-1008-762a.ngrok-free.app"
           socket-path="/socket.io/">
-          <style>:root { --color-primary: #26c6da; }</style>
+          <style>:root { --color-primary: #245b75; }</style>
         </rasa-chatbot-widget>
    
     </main>
