@@ -1,169 +1,147 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Mentoring Session with Coment</title>
-  <style>
-    .container {
-    display: flex;
-    flex-direction: row;
-    gap: 40px;
-    padding: 40px;
-    max-width: 1200px;
-    margin: 0 auto;
-  }
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Mentoring Session with Coment</title>
+    <!-- Rasa Chat Widget -->
+    <script
+            type="module"
+            src="https://unpkg.com/@rasahq/chat-widget-ui/dist/rasa-chatwidget/rasa-chatwidget.esm.js"
+    ></script>
+    <link
+            rel="stylesheet"
+            href="https://unpkg.com/@rasahq/chat-widget-ui/dist/rasa-chatwidget/rasa-chatwidget.css"
+    />
+    <style>
+        .container {
+        display: flex;
+        flex-direction: row;
+        gap: 40px;
+        padding: 40px;
+        max-width: 1200px;
+        margin: 0 auto;
+      }
 
-  .info-panel {
-    flex: 1;
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
-  }
+      .info-panel {
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+      }
 
-  .chat-panel {
-    flex: 1.5; 
-    min-height: 600px;
-    position: relative; 
-  }
-    body {
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      background-color: #f7f9fc;
-      margin: 0;
-      padding: 0;
-      display: flex;
-      flex-direction: column;
-      min-height: 100vh;
-    }
+      .chat-panel {
+        flex: 1.5;
+        min-height: 600px;
+        position: relative;
+      }
+        body {
+          font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+          background-color: #f7f9fc;
+          margin: 0;
+          padding: 0;
+          display: flex;
+          flex-direction: column;
+          min-height: 100vh;
+        }
 
-    header {
-      background-color: #6093ab;
-      color: white;
-      width: 100%;
-      padding: 20px 30px;
-      text-align: left;
-      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    }
+        header {
+          background-color: #6093ab;
+          color: white;
+          width: 100%;
+          padding: 20px 30px;
+          text-align: left;
+          box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
 
-    h1 {
-      margin: 0;
-      font-size: 28px;
-    }
+        h1 {
+          margin: 0;
+          font-size: 28px;
+        }
 
-    main {
-      padding: 30px;
-      display: flex;
-      flex-direction: column;
-      align-items: flex-start;
-    }
+        main {
+          padding: 30px;
+          display: flex;
+          flex-direction: column;
+          align-items: flex-start;
+        }
 
-    .return-link {
-      margin-top: 20px;
-      text-align: left;
-      padding-left: 10px;
-    }
+        rasa-chatbot-widget {
+        position: relative !important;
+        bottom: auto !important;
+        right: auto !important;
+        width: 100% !important;
+        height: 600px !important;
+      }
 
-    .return-link a {
-      text-decoration: none;
-      color: #6093ab;
-      font-weight: bold;
-      border: 1px solid #6093ab;
-      padding: 10px 16px;
-      border-radius: 6px;
-      background-color: #e0f7fa;
-      transition: 0.3s;
-    }
+      @media (max-width: 800px) {
+        .container { flex-direction: column; }
+        .chat-panel { height: 500px; }
+      }
 
-    .return-link a:hover {
-      background-color: #83c6e6;
-    }
+    </style>
 
-    rasa-chatbot-widget {
-    position: relative !important;
-    bottom: auto !important;
-    right: auto !important;
-    width: 100% !important;
-    height: 600px !important;
-  }
-
-  @media (max-width: 800px) {
-    .container { flex-direction: column; }
-    .chat-panel { height: 500px; }
-  }
-  </style>
 </head>
+
 <body>
-
-  <header>
+<header>
     <h1>Mentoring Session with Coment</h1>
-  </header>
-    <div class="container">
-      
+</header>
+<div class="container">
     <div class="info-panel">
-      <div style="display: flex; align-items: flex-start; margin-bottom: 15px;">
-        <span style="margin-right: 12px; margin-top: 2px; font-size: 1.2rem;">ℹ️</span>
-        <p style="margin: 0; line-height: 1.5; font-size: 15px; color: #333;">
-          For the best experience, please use <strong>clear language</strong> and <strong>provided buttons</strong> when interacting with the chatbot.
-        </p>
-      </div>
-      
-      <div style="display: flex; align-items: flex-start; margin-bottom: 15px;">
-        <span style="margin-right: 12px; margin-top: 2px; font-size: 1.2rem;">🕒</span>
-        <p style="margin: 0; line-height: 1.5; font-size: 15px; color: #333;">
-          The chatbot may take a moment to respond to your message. Thank you for your patience!
-        </p>
-      </div>
+        <div style="display: flex; align-items: flex-start; margin-bottom: 15px;">
+            <span style="margin-right: 12px; margin-top: 2px; font-size: 1.2rem;">ℹ️</span>
+            <p style="margin: 0; line-height: 1.5; font-size: 15px; color: #333;">
+                For the best experience, please use <strong>clear language</strong> and <strong>provided
+                buttons</strong> when interacting with the chatbot.
+            </p>
+        </div>
 
-      <div style="display: flex; align-items: flex-start;">
-        <span style="margin-right: 12px; margin-top: 2px; font-size: 1.2rem;">💬</span>
-        <p style="margin: 0; line-height: 1.5; font-size: 15px; color: #245b75; font-weight: bold;">
-          Please click on the chat icon to the right to start the session!
-        </p>
-      </div>
-      
+        <div style="display: flex; align-items: flex-start; margin-bottom: 15px;">
+            <span style="margin-right: 12px; margin-top: 2px; font-size: 1.2rem;">🕒</span>
+            <p style="margin: 0; line-height: 1.5; font-size: 15px; color: #333;">
+                The chatbot may take a moment to respond to your message. Thank you for your patience!
+            </p>
+        </div>
+
+        <div style="display: flex; align-items: flex-start;">
+            <span style="margin-right: 12px; margin-top: 2px; font-size: 1.2rem;">💬</span>
+            <p style="margin: 0; line-height: 1.5; font-size: 15px; color: #245b75; font-weight: bold;">
+                Please click on the chat icon to the right to start the session!
+            </p>
+        </div>
+
     </div>
-    
-
-    <main class="chat-panel">
-    
-      <!-- Rasa Chat Widget -->
-      <script
-        type="module"
-        src="https://unpkg.com/@rasahq/chat-widget-ui/dist/rasa-chatwidget/rasa-chatwidget.esm.js"
-      ></script>
-      <link
-        rel="stylesheet"
-        href="https://unpkg.com/@rasahq/chat-widget-ui/dist/rasa-chatwidget/rasa-chatwidget.css"
-      />
-      <!-- Replace server-url  -->
-   
-       <rasa-chatbot-widget 
-          id="my-bot" 
-          toggle-full-screen="true" 
-          widget-title="Mentoring Session with Coment" 
-          server-url="https://8a42-2001-16b8-c563-aa00-65d7-1d2a-1008-762a.ngrok-free.app"
-          socket-path="/socket.io/">
-          <style>:root { --color-primary: #245b75; }</style>
+    <div class="chat-panel">
+        <!-- Replace server-url ! -->
+        <rasa-chatbot-widget
+                id="my-bot"
+                toggle-full-screen="true"
+                widget-title="Mentoring Session with Coment"
+                server-url="http://localhost:5005"
+                initial-payload="/session_start">
+            <style>:root { --color-primary: #245b75; }</style>
         </rasa-chatbot-widget>
-   
-    </main>
-  </div>
+    </div>
 
-  <script>
-    // Grab condition from url
-  const urlParams = new URLSearchParams(window.location.search);
-  const condition = urlParams.get('condition') || "1";
-
-  // Select the widget element
-  const botWidget = document.getElementById('my-bot');
-
-  // Construct initial payload
-  if (botWidget) {
-    botWidget.setAttribute('initial-payload', 'trigger_flow{"flow": "welcome"}');
-    botWidget.setAttribute('custom-data', JSON.stringify({ "condition": condition }));
-  }
-  </script>
-  
-
+</div>
 </body>
+<script>
+    // grab params from url
+    const params = new URLSearchParams(window.location.search);
+
+    const widget = document.getElementById('my-bot');
+    
+    // prepare metadata
+    const metadata = {
+        "condition": params.get('condition') || "1",
+        "user_id": params.get('user_id') || "unknown"
+    };
+        
+    if (widget) {
+        // set initial payload
+        const payloadString = `/trigger_flow{"flow": "welcome", "metadata": ${JSON.stringify(metadata)}}`;
+        widget.setAttribute('initial-payload', payloadString);
+    }
+</script>
 </html>
