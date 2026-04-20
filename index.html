@@ -100,7 +100,7 @@
         <div style="display: flex; align-items: flex-start; margin-bottom: 15px;">
             <span style="margin-right: 12px; margin-top: 2px; font-size: 1.2rem;">🕒</span>
             <p style="margin: 0; line-height: 1.5; font-size: 15px; color: #333;">
-                The chatbot may take a moment to respond to your message. Thank you for your patience!
+                The initial connection may take a moment to load. Thank you for your patience!
             </p>
         </div>
 
@@ -113,12 +113,12 @@
 
     </div>
     <div class="chat-panel">
-        <!-- Replace server-url ! -->
         <rasa-chatbot-widget
                 id="my-bot"
                 toggle-full-screen="true"
                 widget-title="Mentoring Session with Coment"
-                server-url="http://localhost:5005"
+                rest-enabled="false"
+                server-url="https://assistant-763331293242.europe-west3.run.app"
                 initial-payload="/session_start">
             <style>:root { --color-primary: #245b75; }</style>
         </rasa-chatbot-widget>
